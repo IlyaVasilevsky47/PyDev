@@ -1,20 +1,11 @@
 import argparse
 import logging
-import os
 
 from dotenv import load_dotenv
 
 from constants import DT_FORMAT, LOG_DIR, LOG_FILE, LOG_FORMAT
 
 load_dotenv()
-
-
-class Settings:
-    POSTGRES_NAME = 'postgres'
-    POSTGRES_USER = os.getenv('POSTGRES_USER')
-    POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
-    DB_HOST = os.getenv('DB_HOST')
-    DB_PORT = int(os.getenv('DB_PORT'))
 
 
 def configure_logging():
@@ -39,13 +30,10 @@ def configure_argument(available_modes):
         choices=available_modes,
         help=(
             'Режимы работы: \n'
-            '1. inventory-convert - перебразовует из csv в json '
-            'для таблицы inventory; \n'
-            '2. price-convert - перебразовует из csv в json'
-            'для таблицы price.\n'
-            '\nДополнительные режимы (трубеться запуск docker-compose):\n'
-            '1. db-import - импортируем данные csv в базу данных;\n'
-            '2. db-export - экспортируем данные из базы данных в json.'
+            '1. price-runner - Парсинг входного'
+            'файла формата PriceRunner;\n'
+            '2. inventory-runner - парсинг входного'
+            'файла формата InventoryRunner.\n'
         )
     )
     return script
