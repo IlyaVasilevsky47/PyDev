@@ -30,7 +30,7 @@ def configure_argument(available_modes):
         choices=available_modes,
         help=(
             'Режимы работы: \n'
-            '1. price-runner - Парсинг входного'
+            '1. price-runner - парсинг входного'
             'файла формата PriceRunner;\n'
             '2. inventory-runner - парсинг входного'
             'файла формата InventoryRunner.\n'
