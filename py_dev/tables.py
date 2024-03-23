@@ -1,6 +1,7 @@
-from utils import convert_date, checking_empty_field
+from utils import checking_empty_field, convert_date
 
 
+# Format table:
 PRICE_FORMAT = (
     ('name', str),
     ('categories', str),

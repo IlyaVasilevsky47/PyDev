@@ -2,22 +2,25 @@ import logging
 
 from configs import configure_argument, configure_logging
 from constants import DATA_DIR
+from tables import INVENTORY_FORMAT, PRICE_FORMAT
 from utils import csv_to_json, getting_files
-from tables import PRICE_FORMAT, INVENTORY_FORMAT
 
 SCRIPT_RUN = 'Скрипт запущен!'
 COMMAND_LINE_ARGUMENT = 'Аргументы командной строки: {args}'
 SCRIPT_END = 'Скрипт завершил работу.'
 
 
-def price_runner(name_file='price'):
+def price_runner(name_file='price', format_fields=PRICE_FORMAT):
+    """Переобразвания файлов с именем price .csv из .json"""
     for file in getting_files(DATA_DIR, name_file):
-        csv_to_json(file, PRICE_FORMAT)
+        csv_to_json(file, format_fields)
 
 
-def inventory_runner(name_file='inventory'):
+def inventory_runner(name_file='inventory', format_fields=INVENTORY_FORMAT):
+    format
+    """Переобразвания файлов с именем inventory .csv из .json"""
     for file in getting_files(DATA_DIR, name_file):
-        csv_to_json(file, INVENTORY_FORMAT)
+        csv_to_json(file, format_fields)
 
 
 MODE_TO_FUNCTION = {

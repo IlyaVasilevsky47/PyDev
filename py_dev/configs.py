@@ -9,6 +9,7 @@ load_dotenv()
 
 
 def configure_logging():
+    """Логирование скрипта"""
     LOG_DIR.mkdir(exist_ok=True)
     file_handler = logging.FileHandler(LOG_FILE, mode='w')
     file_handler.setLevel(logging.INFO)
@@ -21,6 +22,7 @@ def configure_logging():
 
 
 def configure_argument(available_modes):
+    """Команды скрипта"""
     script = argparse.ArgumentParser(
         description='Скрипт выполняющий загрузку и преобразование данных',
         formatter_class=argparse.RawTextHelpFormatter

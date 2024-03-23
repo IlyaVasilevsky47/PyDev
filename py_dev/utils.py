@@ -4,9 +4,10 @@ import logging
 import os
 import re
 from datetime import datetime
+
 from tqdm import tqdm
 
-from constants import DATA_DIR, LOG_DIR, RESULTS_DIR, DATE_FORMATS
+from constants import DATA_DIR, DATE_FORMATS, LOG_DIR, RESULTS_DIR
 
 CSV_FILE_PATH = '{path}\\{name}.csv'
 JSON_FILE_PATH = '{path}\\{name}.json'
@@ -19,7 +20,8 @@ INFORMATION_THE_FILE_JSON = 'Файл находиться: {path}'
 ERROR_JSON = 'Error in line {index}: {error}, {values}'
 
 
-def logger_json_data(name_file):
+def logger_warning(name_file):
+    """Логирование и сбор WARNING"""
     logger = logging.getLogger(name_file)
     logger.setLevel(logging.WARNING)
     handler = logging.FileHandler(
@@ -35,9 +37,10 @@ def logger_json_data(name_file):
 
 
 def csv_to_json(name_file, format_fields):
+    """Переобразование формата .csv в .json"""
     logging.info(CONVERT_STARTED.format(name=name_file))
     RESULTS_DIR.mkdir(exist_ok=True)
-    logger = logger_json_data(name_file)
+    logger = logger_warning(name_file)
 
     json_data = []
     with tqdm(open(
@@ -80,7 +83,8 @@ def csv_to_json(name_file, format_fields):
         )
 
 
-def getting_files(folder_path, search_template,):
+def getting_files(folder_path, search_template):
+    """Поиск определеных файлов по имени"""
     return [
         os.path.splitext(file)[0]
         for file in os.listdir(folder_path)
@@ -89,6 +93,7 @@ def getting_files(folder_path, search_template,):
 
 
 def convert_date(datetime_str):
+    """Валидация времени"""
     for date_formate in DATE_FORMATS:
         try:
             datetime.strptime(datetime_str, date_formate)
@@ -99,6 +104,7 @@ def convert_date(datetime_str):
 
 
 def checking_empty_field(variable):
+    """Валидация на разрешения пустых полей"""
     if variable in '':
         return 'null'
     return variable
