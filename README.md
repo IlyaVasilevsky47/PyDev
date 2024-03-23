@@ -29,38 +29,38 @@ Py-Dev - это удобный инструмент, написанный на P
 ## Запуск проекта:
 1. Клонируем проект.
 ```bash
-    git git@github.com:IlyaVasilevsky47/PyDev.git
+git git@github.com:IlyaVasilevsky47/PyDev.git
 ```
 2. Создаем и запускаем виртуальное окружение.
 ```bash
-    python -m venv venv
-    source venv/scripts/activate
+python -m venv venv
+source venv/scripts/activate
 ```
 3. Обновляем менеджер пакетов pip и устанавливаем зависимости из файла requirements.txt.
 ```bash
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 ```
 4. Переходи в папку и запускаем проект.
 ```bash
-    cd py_dev
-    python main.py -h
+cd py_dev
+python main.py -h
 ```
 
 ## Возможности программы:
 ```bash
-    usage: main.py [-h] {price-runner,inventory-runner}
+usage: main.py [-h] {price-runner,inventory-runner}
 
-    Скрипт выполняющий загрузку и преобразование данных
+Скрипт выполняющий загрузку и преобразование данных
 
-    positional arguments:
-    {price-runner,inventory-runner}
-                            Режимы работы:
-                            1. price-runner - парсинг входногофайла формата PriceRunner;
-                            2. inventory-runner - парсинг входногофайла формата InventoryRunner.
+positional arguments:
+{price-runner,inventory-runner}
+                        Режимы работы:
+                        1. price-runner - парсинг входногофайла формата PriceRunner;
+                        2. inventory-runner - парсинг входногофайла формата InventoryRunner.
 
-    options:
-    -h, --help            show this help message and exit
+options:
+-h, --help            show this help message and exit
 ```
 
 ## Автор:
