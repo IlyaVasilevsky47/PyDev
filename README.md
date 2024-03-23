@@ -29,7 +29,7 @@ Py-Dev - это удобный инструмент, написанный на P
 ## Запуск проекта:
 1. Клонируем проект.
 ```bash
-git git@github.com:IlyaVasilevsky47/PyDev.git
+git clone git@github.com:IlyaVasilevsky47/PyDev.git
 ```
 2. Создаем и запускаем виртуальное окружение.
 ```bash
