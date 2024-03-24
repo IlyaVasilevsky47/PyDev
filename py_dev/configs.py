@@ -17,7 +17,7 @@ def configure_logging():
         datefmt=DT_FORMAT,
         format=LOG_FORMAT,
         level=logging.INFO,
-        handlers=(logging.StreamHandler(), file_handler)
+        handlers=(logging.StreamHandler(), file_handler),
     )
 
 
@@ -25,7 +25,7 @@ def configure_argument(available_modes):
     """Команды скрипта"""
     script = argparse.ArgumentParser(
         description='Скрипт выполняющий загрузку и преобразование данных',
-        formatter_class=argparse.RawTextHelpFormatter
+        formatter_class=argparse.RawTextHelpFormatter,
     )
     script.add_argument(
         'mode',
@@ -36,6 +36,6 @@ def configure_argument(available_modes):
             'файла формата PriceRunner;\n'
             '2. inventory-runner - парсинг входного'
             'файла формата InventoryRunner.\n'
-        )
+        ),
     )
     return script
