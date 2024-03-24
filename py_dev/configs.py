@@ -1,17 +1,13 @@
 import argparse
 import logging
 
-from dotenv import load_dotenv
-
 from constants import DT_FORMAT, LOG_DIR, LOG_FILE, LOG_FORMAT
-
-load_dotenv()
 
 
 def configure_logging():
     """Логирование скрипта"""
     LOG_DIR.mkdir(exist_ok=True)
-    file_handler = logging.FileHandler(LOG_FILE, mode='w')
+    file_handler = logging.FileHandler(LOG_FILE, mode='w', encoding='utf8')
     file_handler.setLevel(logging.INFO)
     logging.basicConfig(
         datefmt=DT_FORMAT,
