@@ -161,6 +161,7 @@ cython_debug/
 
 # Custom
 *.docx
+*.doc
 *.xlsx
 /postgresql/
 /logs/
